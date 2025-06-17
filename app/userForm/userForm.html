@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add or edit book</title>
+    <link rel="stylesheet" href="../../dist/userForm/userForm.css">
+    <script type="module" src="../../dist/userForm/userForm.js" defer></script>
+</head>
+<body>
+    <div>
+        <form id="form">
+            <label for="username">Korisnicko ime:</label>
+            <input id="username" name="username" type="text"/>
+            <span id="usernameError"></span>
+            <br/>
+
+            <label for="name">Ime:</label>
+            <input id="name" name="name" type="text"/>
+            <span id="nameError"></span>
+            <br/>
+
+            <label for="surname">Prezime:</label>
+            <input id="surname" name="surname" type="text"/>
+            <span id="surnameError"></span>
+            <br/>
+
+            <label for="dateOfBirth">Datum rodjenja:</label>
+            <input id="dateOfBirth" name="dateOfBirth" type="date"/>
+            <span id="dateOfBirthError"></span>
+            <br/>
+        </form>
+        <div class="actions">
+            <button id="submitBtn">Submit</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>
