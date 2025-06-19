@@ -1,1 +1,33 @@
 @import './styles/global';
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    h1{
+        color: blue;
+        text-align: center;
+    }
+    #addBtn {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        width: 150px;
+        height: 20px;
+        color: white;
+        background-color: blue;
+    }
+
+    table {
+        border: 1px solid black;
+        border-radius: 10px;
+
+        thead {
+            background-color: blue;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}

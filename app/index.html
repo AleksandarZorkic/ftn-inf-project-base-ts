@@ -2,12 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Korisnici</title>
     <link rel="stylesheet" href="../dist/index.css">
-    <script type="module" src="../dist/index.js"></script>
 </head>
 <body>
-    
+    <h1>Korisnici</h1>
+    <button id="addBtn">Dodaj novog korisnika</button>
+    <p id="no-data-message" class="hidden">No data to display.</p>
+    <div id="table-details">
+        <table>
+            <thead class="hidden">
+                <tr>
+                    <th>Id</th>
+                    <th>Korisnicko ime</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Datum rodjenja</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    <script type="module" src="../dist/index.js" defer></script>
 </body>
 </html>
