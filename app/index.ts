@@ -1,5 +1,5 @@
 import { UserService } from "./service/user.service.js";
-import type { User }      from "./models/user.model.js";
+import type { User } from "./models/user.model.js";
 
 const userService = new UserService();
 
@@ -29,7 +29,7 @@ function loadUsers(): void {
 
 function renderData(data: User[]): void {
   const tbody  = document.querySelector('table tbody') as HTMLTableSectionElement | null;
-  const thead  = document.querySelector('table thead')    as HTMLTableSectionElement | null;
+  const thead  = document.querySelector('table thead') as HTMLTableSectionElement | null;
   const noData = document.getElementById('no-data-message') as HTMLParagraphElement | null;
   if (!tbody || !thead || !noData) return;
 
@@ -57,7 +57,7 @@ function renderData(data: User[]): void {
       tr.appendChild(td);
     });
     const tdEdit = document.createElement('td');
-    const btn    = document.createElement('button');
+    const btn = document.createElement('button');
     btn.textContent = 'Edit';
     btn.addEventListener('click', () => {
       window.location.href = `userForm/userForm.html?id=${korisnik.id}`;
@@ -65,6 +65,23 @@ function renderData(data: User[]): void {
     tdEdit.appendChild(btn);
     tr.appendChild(tdEdit);
     tbody.appendChild(tr);
+
+    const tdDelete = document.createElement('td');
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.style.width = 'auto';
+
+    deleteButton.onclick = function () {
+        userService.delete(korisnik.id.toString())
+            .then(() => {
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error(error.status, error.text);
+            });
+    }
+    tdDelete.appendChild(deleteButton)
+    tr.appendChild(tdDelete)
   }
 }
 
