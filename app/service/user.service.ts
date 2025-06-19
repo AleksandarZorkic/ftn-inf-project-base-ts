@@ -21,6 +21,21 @@ export class UserService {
             });
         }
 
+    getById(id: string): Promise<User> {
+        return fetch(`${this.apiUrl}/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw {status: response.status, message: response.text}
+                }
+                return response.json();
+            }).then ((user: User) => {
+                return user;
+            }).catch(error => {
+                console.error('Error: ', error.status)
+                throw error
+            });
+    }
+
     add(formData: UserFormData): Promise<User> {
         return fetch(this.apiUrl, {
             method: 'POST',
@@ -40,5 +55,21 @@ export class UserService {
             console.error('Error:', error.status)
             throw error
         })
+    }
+
+    update(id: string, formData: UserFormData): Promise<void> {
+        return fetch(`${this.apiUrl}/${id}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json' },
+            body: JSON.stringify({ id, ...formData})
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw {status: response.status, message: response.text}
+            }
+        }).catch((error) => {
+            console.log('Error: ', error.status)
+            throw error
+        });
     }
 }
