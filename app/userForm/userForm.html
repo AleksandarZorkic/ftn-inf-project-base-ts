@@ -10,6 +10,7 @@
 <body>
     <div>
         <form id="form">
+        <div id="formError" class="form-error"></div>
             <label for="username">Korisnicko ime:</label>
             <input id="username" name="username" type="text"/>
             <span id="usernameError"></span>
@@ -32,7 +33,10 @@
         </form>
         <div class="actions">
             <button id="submitBtn" type="button">Submit</button>
-            <button id="cancelBtn">Cancel</button>
+            <div id="submitTooltip" class="tooltip">Ova opcija potvrdjuje podatke i unosi ih u tabelu.</div>
+            <button id="cancelBtn" type="button">Cancel</button>
+            <div id="cancelTooltip" class="tooltip">Ova opcija otkazuje dodavanje korisnika</div>
+            <div id="spinner" class="spinner hidden"></div>
         </div>
     </div>
 </body>

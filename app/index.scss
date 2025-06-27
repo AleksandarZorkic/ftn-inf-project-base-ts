@@ -16,6 +16,13 @@ body {
         height: 20px;
         color: white;
         background-color: blue;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        transform-origin: center center;
+    }
+    #addBtn:hover {
+        background-color: rgb(60, 91, 248);
+        transform: scale(1.1);
     }
 
     table {
